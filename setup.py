@@ -9,7 +9,7 @@ https://github.com/tenable/integrations-ibmsc
 
 setup(
     name='tenable-ibmsc',
-    version='1.0.0',
+    version='0.1.0',
     description='',
     author='Tenable, Inc.',
     long_description=long_description,
