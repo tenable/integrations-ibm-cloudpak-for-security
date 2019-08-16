@@ -1,0 +1,10 @@
+/examples_from_ibm
+__pycache__
+.vscode
+*.pyc
+/ibm_api_keys.json
+/ibm_gateway_launch.sh
+/tenable_ibmsc.egg-info
+/example_report
+/.python-version
+.DS_Store
