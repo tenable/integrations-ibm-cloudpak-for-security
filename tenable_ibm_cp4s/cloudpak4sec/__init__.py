@@ -3,18 +3,21 @@ from .databases import DatabaseAPI
 from .ingest import IngestionAPI
 from .collections import CollectionAPI
 from .jobs import JobsAPI
+from tenable_ibm_cp4s import __version__
 
-class SecurityConnect(APISession):
-    _lib_identity = 'pyIBMSecurityConnect'
+class CloudPak4Security(APISession):
+    _vendor = 'Tenable'
+    _product = 'CloudPak4Security'
+    _build = __version__
     _url = 'https://app.demo.isc.ibmcloudsecurity.com/api/car/v2'
 
     def __init__(self, key, password):
         self._key = key
         self._password = password
-        APISession.__init__(self)
+        super(CloudPak4Security, self).__init__()
 
     def _build_session(self, session=None):
-        APISession._build_session(self, session)
+        super(CloudPak4Security, self)._build_session(session)
         self._session.auth = (self._key, self._password)
 
     @property

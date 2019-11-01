@@ -1,4 +1,4 @@
-# Tenable.io -> IBM Security Connect Transformer
+# Tenable.io -> IBM Cloud Pak for Security Transformer
 
 This tool is designed to consume Tenable.io asset and vulnerability data,
 transform that data into the IBM Security Connect format, and then upload
@@ -6,7 +6,7 @@ the resulting data into IBM Security Connect.
 
 ### Installing Python Requirements
 ```shell
-pip install tenable-ibmsc
+pip install tenable-ibm-cp4s
 ```
 
 ### Configuration
@@ -14,7 +14,7 @@ The following below details both the command-line arguments as well as the
 equivalent environment variables.
 
 ```
-Usage: tenable-ibmsc [OPTIONS]
+Usage: tenable-ibm-cp4s [OPTIONS]
 
   Tenable.io -> IBM Security Connect Transformer & Ingester
 
@@ -35,7 +35,7 @@ Options:
 Run the import once:
 
 ```
-tenable-ibmsc                           \
+tenable-ibm-cp4s                        \
     --tio-access-key {TIO_ACCESS_KEY}   \
     --tio-secret-key {TIO_SECRET_KEY}   \
     --ibm-access-key {IBM_ACCESS_KEY}   \
@@ -45,7 +45,7 @@ tenable-ibmsc                           \
 Run the import once an hour:
 
 ```
-tenable-ibmsc                             \
+tenable-ibm-cp4s                          \
     --tio-access-key {TIO_ACCESS_KEY}     \
     --tio-secret-key {TIO_SECRET_KEY}     \
     --ibm-access-key {IBM_ACCESS_KEY}     \

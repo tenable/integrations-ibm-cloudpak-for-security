@@ -2,7 +2,7 @@ import arrow, time, json, logging
 from restfly.utils import trunc
 
 
-class Tio2SecurityConnect:
+class Tio2CP4S:
     _cache = dict()
     _plugin_ids = list()
     _report_id = None

@@ -24,7 +24,7 @@ SOFTWARE.
 '''
 import click, logging, time
 from tenable.io import TenableIO
-from .ibm_securityconnect import SecurityConnect
+from .cloudpak4sec import CloudPak4Security
 from .transform import Tio2SecurityConnect
 from . import __version__
 
@@ -48,7 +48,7 @@ from . import __version__
 def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
         run_every, ibm_password_key, ibm_access_key):
     '''
-    Tenable.io -> IBM Security Connect Transformer & Ingester
+    Tenable.io -> IBM CloudPak for Security Transformer & Ingester
     '''
     # Setup the logging verbosity.
     if verbose == 0:
@@ -61,9 +61,9 @@ def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
     # Initiate the Tenable.io API model, the Ingester model, and start the
     # ingestion and data transformation.
     tio = TenableIO(tio_access_key, tio_secret_key,
-        ua_identity='Tio2IBMSC/{}'.format(__version__))
-    ibm = SecurityConnect(ibm_access_key, ibm_password_key)
-    ingest = Tio2SecurityConnect(tio, ibm)
+        vendor='Tenable', product='CloudPak4Security', build=__version__)
+    ibm = CloudPak4Security(ibm_access_key, ibm_password_key)
+    ingest = Tio2CP4S(tio, ibm)
     ingest.ingest(observed_since, batch_size)
 
     # If we are expected to continually re-run the transformer, then we will
