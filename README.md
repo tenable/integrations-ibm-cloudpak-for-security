@@ -1,8 +1,8 @@
 # Tenable.io -> IBM Cloud Pak for Security Transformer
 
 This tool is designed to consume Tenable.io asset and vulnerability data,
-transform that data into the IBM Security Connect format, and then upload
-the resulting data into IBM Security Connect.
+transform that data into the IBM Cloud Pak for Security format, and then upload
+the resulting data into IBM Cloud Pak for Security.
 
 ### Installing Python Requirements
 ```shell
