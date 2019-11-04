@@ -16,8 +16,8 @@ class CloudPak4Security(APISession):
         self._password = password
         super(CloudPak4Security, self).__init__()
 
-    def _build_session(self, session=None):
-        super(CloudPak4Security, self)._build_session(session)
+    def _build_session(self, **kwargs):
+        super(CloudPak4Security, self)._build_session(**kwargs)
         self._session.auth = (self._key, self._password)
 
     @property
