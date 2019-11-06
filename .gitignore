@@ -8,3 +8,5 @@ __pycache__
 /example_report
 /.python-version
 .DS_Store
+/tenable_ibm_cp4s.egg-info
+/dist
