@@ -27,6 +27,7 @@ Options:
   -r, --run-every INTEGER       How many hours between recurring imports
   -a, --ibm-access-key TEXT     The access key for IBMs CAR API.
   -p, --ibm-password-key TEXT   The password key for IBMs CAR API.
+  --ibm-car-uri                 The API URI for IBM\'s CAR API.
   --help                        Show this message and exit.
 ```
 
