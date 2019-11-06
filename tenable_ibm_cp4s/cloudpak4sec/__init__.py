@@ -9,12 +9,12 @@ class CloudPak4Security(APISession):
     _vendor = 'Tenable'
     _product = 'CloudPak4Security'
     _build = __version__
-    _url = 'https://app.demo.isc.ibmcloudsecurity.com/api/car/v2'
+    _url = 'https://connect.security.ibm.com/api/car/v2'
 
-    def __init__(self, key, password):
+    def __init__(self, key, password, **kwargs):
         self._key = key
         self._password = password
-        super(CloudPak4Security, self).__init__()
+        super(CloudPak4Security, self).__init__(**kwargs)
 
     def _build_session(self, **kwargs):
         super(CloudPak4Security, self)._build_session(**kwargs)

@@ -9,8 +9,8 @@ https://github.com/tenable/integrations-ibm-cloudpak-for-security
 
 setup(
     name='tenable-ibm-cp4s',
-    version='1.0.0',
-    description='',
+    version='1.0.1',
+    description='Tenable -> IBM Cloud Pak for Security Bridge',
     author='Tenable, Inc.',
     long_description=long_description,
     author_email='smcgrath@tenable.com',

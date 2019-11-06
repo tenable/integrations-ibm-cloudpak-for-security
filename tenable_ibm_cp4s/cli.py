@@ -45,8 +45,11 @@ from . import __version__
     help='The access key for IBMs CAR API.')
 @click.option('--ibm-password-key', '-p', envvar='IBM_PASSWORD_KEY',
     help='The password key for IBMs CAR API.')
+@click.option('--ibm-car-uri', envvar='IBM_CAR_API_URI',
+    default='https://connect.security.ibm.com/api/car/v2',
+    help='The API URI for IBM\'s CAR API.')
 def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
-        run_every, ibm_password_key, ibm_access_key):
+        run_every, ibm_password_key, ibm_access_key, ibm_car_uri):
     '''
     Tenable.io -> IBM CloudPak for Security Transformer & Ingester
     '''
@@ -62,7 +65,7 @@ def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
     # ingestion and data transformation.
     tio = TenableIO(tio_access_key, tio_secret_key,
         vendor='Tenable', product='CloudPak4Security', build=__version__)
-    ibm = CloudPak4Security(ibm_access_key, ibm_password_key)
+    ibm = CloudPak4Security(ibm_access_key, ibm_password_key, url=ibm_car_uri)
     ingest = Tio2CP4S(tio, ibm)
     ingest.ingest(observed_since, batch_size)
 
