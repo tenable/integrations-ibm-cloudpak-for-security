@@ -46,7 +46,7 @@ class IngestionAPI(APIEndpoint):
             'active': True
         }]
 
-        job = self._api.post('ingestion/imports', json=kwargs).json()
+        job = self._api.post('imports', json=kwargs).json()
 
         # If we want to wait until the import has returned either a completed
         # or errored state, then we will loop and wait for the job to enter
@@ -74,7 +74,7 @@ class IngestionAPI(APIEndpoint):
             >>> ibm.ingest.import_status(JOB_ID)
         '''
         return self._api.get(
-            'ingestion/importstatus/{}'.format(id)).json()
+            'importstatus/{}'.format(id)).json()
 
     def status(self):
         '''
@@ -88,4 +88,4 @@ class IngestionAPI(APIEndpoint):
             >>> for job in ibm.ingest.status():
             ...     print(job)
         '''
-        return self._api.get('ingestion/importstatus').json()
+        return self._api.get('importstatus').json()
