@@ -4,6 +4,12 @@ This tool is designed to consume Tenable.io asset and vulnerability data,
 transform that data into the IBM Cloud Pak for Security format, and then upload
 the resulting data into IBM Cloud Pak for Security.
 
+### Requirements
+
+* API Access and Password keys for your IBM Cloud Pak for Security account.
+* API Access and Secret keys for an admin user in Tenable.io
+* A host to run this integration on.
+
 ### Installing Python Requirements
 ```shell
 pip install tenable-ibm-cp4s
