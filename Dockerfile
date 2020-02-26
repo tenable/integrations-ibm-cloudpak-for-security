@@ -2,7 +2,8 @@ FROM registry.access.redhat.com/ubi8/python-36
 
 USER root
 
-RUN yum -y update --security
+RUN yum update-minimal --security --sec-severity=Important --sec-severity=Critical --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
+RUN yum update systemd-libs systemd-pam systemd --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
 
 USER 1001
 
