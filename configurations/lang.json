@@ -19,16 +19,16 @@
             "label": "Time",
             "description": "Set the time to run connector to pull data from data source"
         },
+        "batch-size": {
+            "label": "Batch Size",
+            "description": "Export/Import Batch Sizing"
+        },
         "help": {
             "label": "Help",
             "description": "More details on the datasource setting can be found in the specified link"
         }
     },
     "configuration": {
-        "batch-size": {
-            "label": "Batch Size",
-            "description": "Export/Import Batch Sizing"
-        },
         "auth": {
             "tio-access-key": {
                 "label": "Access Key",

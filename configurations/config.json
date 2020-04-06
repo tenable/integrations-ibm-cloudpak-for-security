@@ -3,9 +3,6 @@
         "type": {
             "default": "tenable"
         },
-        "name": {
-            "type": "text"
-        },
         "frequency": {
             "default": "15m",
             "type": "dropdown",
@@ -14,6 +11,11 @@
         "time": {
             "default": "09:00",
             "type": "time"
+        },
+        "batch-size": {
+            "type": "number",
+            "default": 1000,
+            "optional": true
         },
         "help": {
             "default": "https://www.ibm.com/support/knowledgecenter/SSTDPP_1.1.0/docs/scp-core/data-sources-azure-sentinel.html",
@@ -26,11 +28,6 @@
         }
     },
     "configuration": {
-        "batch-size": {
-            "type": "number",
-            "default": 1000,
-            "optional": true
-        },
         "auth": {
             "tio-access-key": {
                 "type": "password"
