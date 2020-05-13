@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi8/python-36
 USER root
 
 RUN yum update-minimal --security --sec-severity=Important --sec-severity=Critical --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
-RUN yum update gnutls git systemd-libs systemd-pam systemd --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
+RUN yum update kernel-headers gnutls git systemd-libs systemd-pam systemd --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
 RUN yum -y remove nodejs && rm -rf /var/cache/yum
 USER 1001
 
