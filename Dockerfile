@@ -14,6 +14,7 @@ LABEL name="isc-car-connector-tenable" \
 			version="1.2.0.0" \
 			description="Tenable connector feeds CAR with assets informations and vulnerabilities."
 
+COPY ./configurations /usr/src/app/configurations
 COPY /licenses/LA_en /licenses/LA_en
 
 RUN pip install tenable-ibm-cp4s
