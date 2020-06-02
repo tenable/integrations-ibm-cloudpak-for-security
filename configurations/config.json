@@ -3,6 +3,17 @@
         "type": {
             "default": "tenable"
         },
+        "name": {
+            "min": 5,
+            "type": "text",
+            "regex": "^[A-Za-z0-9 _-]*$",
+            "default": null
+        },
+        "description": {
+            "type": "text",
+            "regex": "^[A-Za-z0-9 _-]*$",
+            "default": null
+        },
         "frequency": {
             "default": "15m",
             "type": "dropdown",

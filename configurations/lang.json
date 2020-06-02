@@ -1,5 +1,13 @@
 {
     "connection": {
+        "name": {
+            "label": "Connector name",
+            "description": "Assign a name to uniquely identify the data source connection"
+        },
+        "description": {
+            "label": "Connector Description",
+            "description": "Write a description to indicate the purpose of the data source connection"
+        },
         "frequency": {
             "label": {
                 "5m"    : "5 minutes",
