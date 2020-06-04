@@ -34,7 +34,7 @@
         "image": {
             "type": "text",
             "hidden": true,
-            "default": "tenable-car:Rel_45"
+            "default": "{image_link}"
         }
     },
     "configuration": {
