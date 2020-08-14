@@ -1,0 +1,36 @@
+*/.git*
+.git
+
+# ignore the following files and folders
+.idea/
+.vscode/
+base/__pycache__/
+aws/__pycache__/
+pylintrc.cfg
+errors/
+logs/
+import_files/
+tenable_ibm_cp4s/
+tests/__pycache__/
+coverage/
+.coverage
+.pytest_cache/
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+virtualenv/
+
+# mypy
+.mypy_cache/
+
+*pytest_cache*
+*__pycache__*
+.DS_Store
+*.pyc
+
+build.sh

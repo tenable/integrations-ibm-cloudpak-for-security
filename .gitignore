@@ -8,3 +8,4 @@ __pycache__
 /example_report
 /.python-version
 .DS_Store
+build.sh
