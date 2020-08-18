@@ -130,7 +130,8 @@ class Tio2CP4S:
         '''
         # Hostnames could be FQDNs, NetBIOS, or Hostnames, so for simplicity we
         # will smash all of them together into a singular list.
-        hostnames = asset['hostnames'] + asset['fqdns'] + asset['netbios_names']
+        asset_names = asset['hostnames'] + asset['fqdns'] + asset['netbios_names']
+        hostnames = asset['hostnames'] + asset['fqdns']
         ips = asset['ipv4s'] + asset['ipv6s']
 
         def edge(to_key):
@@ -144,9 +145,13 @@ class Tio2CP4S:
                 'active': True,
             }
 
+        asset_name = asset_names[0] if asset_names else None
+        if not asset_name:
+            asset_name = ips[0] if ips else None
+
         self._add_to_cache('asset', {
             'external_id': asset['id'],
-            'name': hostnames[0] if len(hostnames) > 0 else ips[0],
+            'name': asset_name,
 
             ### Extended Fields Specific to Tenable.io
 
