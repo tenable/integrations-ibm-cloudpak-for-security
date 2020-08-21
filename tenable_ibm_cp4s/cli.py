@@ -45,7 +45,7 @@ from . import __version__
     help='The access key for IBMs CAR API.')
 @click.option('--ibm-password-key', '-p', envvar='IBM_PASSWORD_KEY',
     help='The password key for IBMs CAR API.')
-@click.option('--ibm-car-uri', envvar='IBM_CAR_API_URI',
+@click.option('--ibm-car-uri', envvar='CAR_SERVICE_URL',
     default='https://connect.security.ibm.com/api/car/v2',
     help='The API URI for IBM\'s CAR API.')
 def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
