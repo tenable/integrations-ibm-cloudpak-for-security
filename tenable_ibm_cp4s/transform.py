@@ -1,10 +1,10 @@
-import arrow, time, json, logging
+import arrow
+import logging
 from restfly.utils import trunc
 
 
 class Tio2CP4S:
     _cache = dict()
-    _plugin_ids = list()
     _report_id = None
 
     def __init__(self, tio, ibmsc):
@@ -25,15 +25,21 @@ class Tio2CP4S:
         '''
         if obj:
             return int(arrow.get(obj).float_timestamp)
+        return 0
 
     def _add_to_cache(self, collection, item):
         '''
         Adds an item to the cache and will create the collection in the cache if
-        one doesn't exist yet.
+        one doesn't exist yet. Does not add duplicate items to the cache.
         '''
         if collection not in self._cache:
-            self._cache[collection] = list()
-        self._cache[collection].append(item)
+            self._cache[collection] = dict()
+        key = item.get('_key') or item.get('external_id')
+        if not key:
+            from_key = item.get('_from_external_id') or item.get('_from')
+            to_key = item.get('_to_external_id') or item.get('_to')
+            key = "{}_{}".format(from_key, to_key)
+        self._cache[collection].setdefault(key, item)
 
     def _drain_cache(self, collection, limit):
         '''
@@ -44,9 +50,10 @@ class Tio2CP4S:
             collection (str): The name of the collection to validate
             limit (int): The number of items in which to initiate an upload.
         '''
-        if len(self._cache.get(collection, [])) >= limit or limit == 0:
-            self.ibm.ingest.ingest('tenable.io', self._report_id,
-                wait=True, **self._cache)
+        if len(self._cache.get(collection, {}).keys()) >= limit or limit == 0:
+            cache = {collection: list(entries.values())
+                     for collection, entries in self._cache.items()}
+            self.ibm.ingest.ingest('tenable.io', self._report_id, wait=True, **cache)
             self._cache = dict()
 
     def _transform_vuln(self, vuln):
@@ -69,32 +76,30 @@ class Tio2CP4S:
         }
         sevmap = {0: 0.0, 1: 3.0, 2: 5.0, 3: 7.0, 4: 10.0}
 
-        if plugin['id'] not in self._plugin_ids:
-            self._add_to_cache('vulnerability', {
-                'external_id': str(plugin['id']),
-                'external_reference': ''.join([
-                    'https://cloud.tenable.com',
-                    '/tio/app.html#/vulnerability-management',
-                    '/vulnerabilities/by-plugins/vulnerability-details',
-                    '/{}/overview'.format(plugin['id'])
-                ]),
-                'name': plugin['name'],
-                'description': plugin['description'],
-                'disclosed_on': str(plugin.get('vuln_publication_date', '')),
-                'published_on': str(plugin.get('publication_date', '')),
-                'updated_at': str(plugin.get('modification_date', '')),
-                'base_score': plugin.get('cvss_base_score',
-                                         sevmap[vuln['severity_id']]),
-                'source': 'tenableio',
+        self._add_to_cache('vulnerability', {
+            'external_id': str(plugin['id']),
+            'external_reference': ''.join([
+                'https://cloud.tenable.com',
+                '/tio/app.html#/vulnerability-management',
+                '/vulnerabilities/by-plugins/vulnerability-details',
+                '/{}/overview'.format(plugin['id'])
+            ]),
+            'name': plugin['name'],
+            'description': plugin['description'],
+            'disclosed_on': self._ts(plugin.get('vuln_publication_date', '')),
+            'published_on': self._ts(plugin.get('publication_date', '')),
+            'updated_at': self._ts(plugin.get('modification_date', '')),
+            'base_score': plugin.get('cvss_base_score',
+                                     sevmap[vuln['severity_id']]),
+            'source': 'tenable.io',
 
-                ### Extended Fields Specific to Tenable.io
+            ### Extended Fields Specific to Tenable.io
 
-                'links': plugin.get('see_also', list()),
-                'cpes': plugin.get('cpe', list()),
-                'solution': trunc(plugin.get('solution', ''), 1024),
-                'synopsis': trunc(plugin.get('synopsis', ''), 1024),
-            })
-            self._plugin_ids.append(plugin['id'])
+            'links': plugin.get('see_also', list()),
+            'cpes': plugin.get('cpe', list()),
+            'solution': trunc(plugin.get('solution', ''), 1024),
+            'synopsis': trunc(plugin.get('synopsis', ''), 1024),
+        })
 
         self._add_to_cache('asset_vulnerability', {
             '_from_external_id': '{}'.format(asset['uuid']),
@@ -125,7 +130,8 @@ class Tio2CP4S:
         '''
         # Hostnames could be FQDNs, NetBIOS, or Hostnames, so for simplicity we
         # will smash all of them together into a singular list.
-        hostnames = asset['hostnames'] + asset['fqdns'] + asset['netbios_names']
+        asset_names = asset['hostnames'] + asset['fqdns'] + asset['netbios_names']
+        hostnames = asset['hostnames'] + asset['fqdns']
         ips = asset['ipv4s'] + asset['ipv6s']
 
         def edge(to_key):
@@ -139,23 +145,19 @@ class Tio2CP4S:
                 'active': True,
             }
 
+        asset_name = asset_names[0] if asset_names else None
+        if not asset_name:
+            asset_name = ips[0] if ips else None
+
         self._add_to_cache('asset', {
             'external_id': asset['id'],
-            'name': hostnames[0] if len(hostnames) > 0 else ips[0],
+            'name': asset_name,
 
             ### Extended Fields Specific to Tenable.io
 
             'operating_systems': asset.get('operating_systems', list()),
             'tenable_asset_uuid': asset['id'],
             'tenable_agent_uuid': asset['agent_uuid'],
-        })
-
-        self._add_to_cache('report_asset', {
-            '_from': 'report/{}'.format(self._report_id),
-            '_to_external_id': asset['id'],
-            'timestamp': self._ts(arrow.utcnow()),
-            'source': 'tenable.io',
-            'active': True,
         })
 
         for macaddress in asset['mac_addresses']:
