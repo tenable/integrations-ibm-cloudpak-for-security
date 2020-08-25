@@ -9,3 +9,5 @@ __pycache__
 /.python-version
 .DS_Store
 build.sh
+/tenable_ibm_cp4s.egg-info
+/dist
