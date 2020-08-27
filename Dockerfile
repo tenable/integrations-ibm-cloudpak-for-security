@@ -5,10 +5,17 @@ RUN  microdnf update -y && \
      microdnf clean all && \
      rm -rf /var/cache/yum
 
+#-- Builder Image
+
 FROM base as builder
 USER root
 RUN  microdnf install python3-pip
-RUN pip3 install tenable-ibm-cp4s
+
+COPY src /src
+
+RUN pip3 install /src/
+
+#-- Deployment Image
 
 FROM base
 ARG TMP_USER_ID=1001
@@ -19,7 +26,7 @@ USER root
 COPY ./configurations /usr/src/app/configurations
 COPY /licenses/LA_en /licenses/LA_en
 
-RUN chown -R ${TMP_USER_ID}:${TMP_USER_GROUP} /usr/src/app 
+RUN chown -R ${TMP_USER_ID}:${TMP_USER_GROUP} /usr/src/app
 
 COPY --from=builder /usr/local/lib64/python3.6/site-packages /usr/local/lib64/python3.6/site-packages
 COPY --from=builder /usr/local/lib/python3.6/site-packages /usr/local/lib/python3.6/site-packages
