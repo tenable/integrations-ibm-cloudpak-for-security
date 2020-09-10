@@ -26,7 +26,7 @@ import click, logging, time
 from tenable.io import TenableIO
 from .cloudpak4sec import CloudPak4Security
 from .transform import Tio2CP4S
-from . import __version__
+from .__init__ import __version__
 
 @click.command()
 @click.option('--tio-access-key',
