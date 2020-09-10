@@ -1,4 +1,4 @@
-from src import __main__ as src_main
+from src.tenable_ibm_cp4s.cli import cli
 
 if __name__ == "__main__":
-    src_main()
+    cli()
