@@ -45,6 +45,3 @@ LABEL name="isc-car-connector-tenable" \
 			description="Tenable connector feeds CAR with assets informations and vulnerabilities."
 
 CMD python3 main.py
-# CMD python3 main.py -accountId=${ACCOUNT_ID} -clientID=${CLIENT_ID} -clientSecret=${CLIENT_SECRET} -region=${REGION} -url=${CAR_SERVICE_URL} -api_key=${CAR_SERVICE_KEY} -password=${CAR_SERVICE_PASSWORD} -source=${SOURCE} -working_dir=/tmp
-# do I need to specify -incremental_update=true ?
-# CMD python3 main.py -accountId=${ACCOUNT_ID} -clientID=${CLIENT_ID} -clientSecret=${CLIENT_SECRET} -region=${REGION} -url=${CAR_SERVICE_URL} -api_key=${CAR_SERVICE_KEY} -password=${CAR_SERVICE_PASSWORD} -source=${SOURCE} -incremental_update=true -working_dir=/tmp
