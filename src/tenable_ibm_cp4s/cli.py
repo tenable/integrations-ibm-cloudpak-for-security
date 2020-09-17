@@ -26,7 +26,7 @@ import click, logging, time
 from tenable.io import TenableIO
 from .cloudpak4sec import CloudPak4Security
 from .transform import Tio2CP4S
-from . import __version__
+from .__init__ import __version__
 
 @click.command()
 @click.option('--tio-access-key',
@@ -82,3 +82,7 @@ def cli(tio_access_key, tio_secret_key, batch_size, verbose, observed_since,
             logging.info(
                 'Initiating ingest with observed_since={}'.format(last_run))
             ingest.ingest(last_run, batch_size, threads)
+
+
+if __name__ == "__main__":
+    cli()

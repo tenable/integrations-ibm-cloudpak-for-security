@@ -3,7 +3,7 @@ from .databases import DatabaseAPI
 from .ingest import IngestionAPI
 from .collections import CollectionAPI
 from .jobs import JobsAPI
-from tenable_ibm_cp4s import __version__
+from ..__init__ import __version__
 
 class CloudPak4Security(APISession):
     _vendor = 'Tenable'

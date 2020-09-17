@@ -10,10 +10,8 @@ RUN  microdnf update -y && \
 FROM base as builder
 USER root
 RUN  microdnf install python3-pip
-
-COPY src /src
-
-RUN pip3 install /src/
+COPY requirements.txt requirements.txt
+RUN  pip3 install -r requirements.txt --no-cache-dir 
 
 #-- Deployment Image
 
@@ -22,6 +20,8 @@ ARG TMP_USER_ID=1001
 ARG TMP_USER_GROUP=1001
 
 USER root
+
+ADD . /usr/src/app
 
 COPY ./configurations /usr/src/app/configurations
 COPY /licenses/LA_en /licenses/LA_en
@@ -32,7 +32,6 @@ COPY --from=builder /usr/local/lib64/python3.6/site-packages /usr/local/lib64/py
 COPY --from=builder /usr/local/lib/python3.6/site-packages /usr/local/lib/python3.6/site-packages
 COPY --from=builder /usr/lib64/python3.6/site-packages /usr/lib64/python3.6/site-packages
 COPY --from=builder /usr/lib/python3.6/site-packages /usr/lib/python3.6/site-packages
-COPY --from=builder /usr/local/bin/tenable-ibm-cp4s /usr/local/bin/tenable-ibm-cp4s
 
 USER ${TMP_USER_ID}
 
@@ -45,4 +44,4 @@ LABEL name="isc-car-connector-tenable" \
 			version="1.4.0.0" \
 			description="Tenable connector feeds CAR with assets informations and vulnerabilities."
 
-CMD tenable-ibm-cp4s
+CMD python3 main.py
