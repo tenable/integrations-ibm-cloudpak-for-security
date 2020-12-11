@@ -38,13 +38,27 @@
     },
     "configuration": {
         "auth": {
-            "tio-access-key": {
+            "tio_access_key": {
                 "label": "Access Key",
                 "description": "Access Key of Tenable with access to its API"
             },
-            "tio-secret-key": {
+            "tio_secret_key": {
                 "label": "Secret Key",
                 "description": "Secret Key of Tenable with access to its API"
+            }
+        },
+        "parameter": {
+            "batch_size": {
+                "label": "Batch size",
+                "description": "Export/Import Batch Sizing"
+            },
+            "verbose": {
+                "label": "Verbose",
+                "description": "Logging Verbosity"
+            },
+            "since": {
+                "label": "Since",
+                "description": "The unix timestamp of the age threshold"
             }
         }
     }
