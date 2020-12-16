@@ -35,7 +35,7 @@ from .__init__ import __version__
     envvar='CONFIGURATION_AUTH_TIO_SECRET_KEY', help='Tenable.io Secret Key')
 @click.option('--batch-size', '-b', envvar='CONFIGURATION_PARAMETER_BATCH_SIZE', default=100,
     type=click.INT, help='Export/Import Batch Sizing')
-@click.option('--verbose', '-v', envvar='CONFIGURATION_PARAMETER_VERBOSITY', default=0,
+@click.option('--verbose', '-v', envvar='CONFIGURATION_PARAMETER_VERBOSE', default=0,
     count=True, help='Logging Verbosity')
 @click.option('--observed-since', '-s', envvar='CONFIGURATION_PARAMETER_SINCE', default=0,
     type=click.INT, help='The unix timestamp of the age threshold')
