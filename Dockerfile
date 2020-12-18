@@ -40,8 +40,8 @@ WORKDIR /usr/src/app
 LABEL name="isc-car-connector-tenable" \
 			vendor="tenable.io" \
 			summary="tenable connector to Connect Asset/Risk (CAR)" \
-			release="1.4" \
-			version="1.4.0.0" \
+			release="1.6" \
+			version="1.6.0.0" \
 			description="Tenable connector feeds CAR with assets informations and vulnerabilities."
 
 CMD python3 main.py
