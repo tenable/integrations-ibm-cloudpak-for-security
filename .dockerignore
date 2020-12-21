@@ -34,3 +34,4 @@ virtualenv/
 *.pyc
 
 build.sh
+setenv.sh

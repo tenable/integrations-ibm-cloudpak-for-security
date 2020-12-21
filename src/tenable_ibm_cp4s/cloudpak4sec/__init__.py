@@ -18,7 +18,11 @@ class CloudPak4Security(APISession):
 
     def _build_session(self, **kwargs):
         super(CloudPak4Security, self)._build_session(**kwargs)
-        self._session.auth = (self._key, self._password)
+        if not kwargs.get('headers'):
+            self._session.auth = (self._key, self._password)
+        else:
+            self._session.auth = False
+            self._session.headers.update(kwargs.get('headers'))
 
     @property
     def ingest(self):
