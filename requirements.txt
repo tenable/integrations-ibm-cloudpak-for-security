@@ -2,5 +2,5 @@ pytenable>=0.3.28
 restfly>=1.1.0
 arrow>=0.13.0
 Click>=7.0
-cryptography==3.2
+cryptography==3.3.2
 pyopenssl==19.1.0
