@@ -1,0 +1,65 @@
+{
+  "connection": {
+    "name": {
+      "label": "Nombre del conector",
+      "description": "Asigne un nombre para identificar de forma exclusiva la conexión de origen de datos"
+    },
+    "description": {
+      "label": "Descripción del conector",
+      "description": "Escriba una descripción para indicar la finalidad de la conexión de origen de datos"
+    },
+    "frequency": {
+      "label": {
+        "5m": "5 minutos",
+        "10m": "10 minutos",
+        "15m": "15 minutos",
+        "30m": "30 minutos",
+        "1h": "1 hora",
+        "2h": "2 horas",
+        "5h": "4 horas",
+        "10h": "6 horas",
+        "12h": "12 horas",
+        "daily": "Diario"
+      },
+      "description": "Establece la frecuencia con la que los conectores tirarán datos del origen de datos"
+    },
+    "time": {
+      "label": "Tiempo",
+      "description": "Establecer el tiempo de ejecución del conector para extraer datos del origen de datos"
+    },
+    "batch-size": {
+      "label": "Tamaño de lote",
+      "description": "Exportación/importación de lotes de dimensionamiento"
+    },
+    "help": {
+      "label": "Ayuda",
+      "description": "Puede encontrar más detalles sobre el valor del origen de datos en el enlace especificado"
+    }
+  },
+  "configuration": {
+    "auth": {
+      "tio_access_key": {
+        "label": "Clave de acceso",
+        "description": "Clave de acceso de Table con acceso a su API"
+      },
+      "tio_secret_key": {
+        "label": "Clave secreta",
+        "description": "Clave secreta de Table con acceso a su API"
+      }
+    },
+    "parameter": {
+      "batch_size": {
+        "label": "Tamaño de lote",
+        "description": "Exportación/importación de lotes de dimensionamiento"
+      },
+      "verbose": {
+        "label": "Verbosa",
+        "description": "Registro de la verbosidad"
+      },
+      "since": {
+        "label": "Desde",
+        "description": "La indicación de fecha y hora unix del umbral de antigüedad"
+      }
+    }
+  }
+}

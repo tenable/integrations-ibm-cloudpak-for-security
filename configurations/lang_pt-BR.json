@@ -1,0 +1,65 @@
+{
+  "connection": {
+    "name": {
+      "label": "Nome do conector",
+      "description": "Designar um nome para identificar com exclusividade a conexão de origem de dados"
+    },
+    "description": {
+      "label": "Descrição do conector",
+      "description": "Escreva uma descrição para indicar o propósito da conexão de origem de dados"
+    },
+    "frequency": {
+      "label": {
+        "5m": "5 minutes",
+        "10m": "10 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hora",
+        "2h": "2 hora",
+        "5h": "4 hora",
+        "10h": "6 hora",
+        "12h": "12 hora",
+        "daily": "Diariamente"
+      },
+      "description": "Configure com que frequência os conectores puxarão dados da fonte de dados"
+    },
+    "time": {
+      "label": "Tempo",
+      "description": "Configure o tempo para executar conector para retirar dados da fonte de dados"
+    },
+    "batch-size": {
+      "label": "Tamanho do lote",
+      "description": "Exportar / Importar Batch Sizing"
+    },
+    "help": {
+      "label": "Ajuda",
+      "description": "Mais detalhes sobre a configuração do datasource podem ser encontrados no link especificado"
+    }
+  },
+  "configuration": {
+    "auth": {
+      "tio_access_key": {
+        "label": "Chave de Acesso",
+        "description": "Chave de Acesso de Tenáveis com acesso à sua API"
+      },
+      "tio_secret_key": {
+        "label": "Chave secreta",
+        "description": "Chave secreta de Tensível com acesso à sua API"
+      }
+    },
+    "parameter": {
+      "batch_size": {
+        "label": "Tamanho do lote",
+        "description": "Exportar / Importar Batch Sizing"
+      },
+      "verbose": {
+        "label": "Verbose",
+        "description": "Verbosidade de Registro"
+      },
+      "since": {
+        "label": "Desde",
+        "description": "O timestamp unix do limite de idade"
+      }
+    }
+  }
+}
