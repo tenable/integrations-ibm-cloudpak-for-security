@@ -1,0 +1,65 @@
+{
+  "connection": {
+    "name": {
+      "label": "커넥터 이름",
+      "description": "데이터 소스 연결을 고유하게 식별하는 이름 지정"
+    },
+    "description": {
+      "label": "커넥터 설명",
+      "description": "데이터 소스 연결의 목적을 나타내는 설명 쓰기"
+    },
+    "frequency": {
+      "label": {
+        "5m": "5 분",
+        "10m": "10 분",
+        "15m": "15 분",
+        "30m": "30 분",
+        "1h": "1 시간",
+        "2h": "2 시간",
+        "5h": "4 시간",
+        "10h": "6 시간",
+        "12h": "12 시간",
+        "daily": "데일리"
+      },
+      "description": "커넥터가 데이터 소스에서 데이터를 가져오는 빈도 설정"
+    },
+    "time": {
+      "label": "시간",
+      "description": "데이터 소스에서 데이터를 가져오기 위해 커넥터 실행 시간 설정"
+    },
+    "batch-size": {
+      "label": "일괄처리 크기",
+      "description": "일괄처리 크기 내보내기/가져오기"
+    },
+    "help": {
+      "label": "도움말",
+      "description": "데이터 소스 설정에 대한 자세한 정보는 지정된 링크에서 찾을 수 있습니다."
+    }
+  },
+  "configuration": {
+    "auth": {
+      "tio_access_key": {
+        "label": "액세스 키",
+        "description": "API에 액세스할 수 있는 Tenable의 키 액세스"
+      },
+      "tio_secret_key": {
+        "label": "비밀 키",
+        "description": "API에 액세스할 수 있는 Tenable의 비밀 키"
+      }
+    },
+    "parameter": {
+      "batch_size": {
+        "label": "일괄처리 크기",
+        "description": "일괄처리 크기 내보내기/가져오기"
+      },
+      "verbose": {
+        "label": "Verbose",
+        "description": "로깅 상세도"
+      },
+      "since": {
+        "label": "이후",
+        "description": "연령 임계값의 단일 시간소인입니다."
+      }
+    }
+  }
+}

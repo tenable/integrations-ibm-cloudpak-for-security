@@ -1,7 +1,8 @@
 {
     "connection": {
         "type": {
-            "default": "tenable"
+            "type": "connectorType",
+            "displayName": "Tenable"
         },
         "name": {
             "min": 5,
@@ -35,6 +36,7 @@
     },
     "configuration": {
         "auth": {
+            "type": "fields",
             "tio_access_key": {
                 "type": "password"
             },
@@ -43,6 +45,7 @@
             }
         },
         "parameter": {
+            "type": "fields",
             "batch_size": {
                 "type": "number",
                 "default": 100

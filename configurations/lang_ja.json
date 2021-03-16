@@ -1,0 +1,65 @@
+{
+  "connection": {
+    "name": {
+      "label": "コネクター名",
+      "description": "データ・ソース接続を一意的に識別するための名前を割り当てます"
+    },
+    "description": {
+      "label": "コネクターの説明",
+      "description": "データ・ソース接続の目的を示す説明を記述します。"
+    },
+    "frequency": {
+      "label": {
+        "5m": "5 分",
+        "10m": "10 分",
+        "15m": "15 分",
+        "30m": "30 分",
+        "1h": "1 時間",
+        "2h": "2 時間",
+        "5h": "4 時間",
+        "10h": "6 時間",
+        "12h": "12 時間",
+        "daily": "毎日"
+      },
+      "description": "コネクターがデータ・ソースからデータをプルする頻度を設定します。"
+    },
+    "time": {
+      "label": "時間",
+      "description": "データ・ソースからデータをプルするようにコネクターを実行する時間を設定します"
+    },
+    "batch-size": {
+      "label": "バッチ・サイズ",
+      "description": "バッチ・サイジングのエクスポート/インポート"
+    },
+    "help": {
+      "label": "ヘルプ",
+      "description": "データ・ソース設定についての詳細は、指定されたリンクにあります。"
+    }
+  },
+  "configuration": {
+    "auth": {
+      "tio_access_key": {
+        "label": "アクセス・キー",
+        "description": "その API へのアクセス権限を持つ Tenable のアクセス・キー"
+      },
+      "tio_secret_key": {
+        "label": "秘密鍵",
+        "description": "Tenable の API へのアクセス権限を持つ秘密鍵"
+      }
+    },
+    "parameter": {
+      "batch_size": {
+        "label": "バッチ・サイズ",
+        "description": "バッチ・サイジングのエクスポート/インポート"
+      },
+      "verbose": {
+        "label": "バーボース",
+        "description": "ロギングの冗長度"
+      },
+      "since": {
+        "label": "以降",
+        "description": "経過時間しきい値の unix タイム・スタンプ"
+      }
+    }
+  }
+}
