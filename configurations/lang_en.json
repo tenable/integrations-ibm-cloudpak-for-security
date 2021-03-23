@@ -2,11 +2,11 @@
     "connection": {
         "name": {
             "label": "Connector name",
-            "description": "Assign a name to uniquely identify the data source connection"
+            "description": "Assign a name to uniquely identify the connection minimum of 5 characters"
         },
         "description": {
             "label": "Connector Description",
-            "description": "Write a description to indicate the purpose of the data source connection"
+            "description": "Assign a description to indicate the purpose of the connection"
         },
         "frequency": {
             "label": "Frequency",
