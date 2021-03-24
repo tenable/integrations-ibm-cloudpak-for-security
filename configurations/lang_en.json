@@ -2,7 +2,7 @@
     "connection": {
         "name": {
             "label": "Connector name",
-            "description": "Assign a name to uniquely identify the connection minimum of 5 characters"
+            "description": "Assign a name to uniquely identify the connection (minimum of 5 characters)"
         },
         "description": {
             "label": "Connector Description",
