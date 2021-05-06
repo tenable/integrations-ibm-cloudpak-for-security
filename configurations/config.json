@@ -29,21 +29,6 @@
             "tio_secret_key": {
                 "type": "password"
             }
-        },
-        "parameter": {
-            "type": "fields",
-            "batch_size": {
-                "type": "number",
-                "default": 100
-            },
-            "verbose": {
-                "type": "number",
-                "default": 1
-            },
-            "since": {
-                "type": "number",
-                "default": 0
-            }
         }
     }
 }
