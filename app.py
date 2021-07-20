@@ -1,4 +1,4 @@
-import argparse
+import argparse, os
 
 from car_framework.context import context
 from car_framework.app import BaseApp
@@ -15,8 +15,8 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Add parameters need to connect data source
-        self.parser.add_argument('-tio-access-key', dest='tioAccessKey', type=str, required=True, help='Tenable.io access key')
-        self.parser.add_argument('-tio-secret-key', dest='tioSecretKey', type=str, required=True, help='Tenable.io secret key')
+        self.parser.add_argument('-tio-access-key', dest='tioAccessKey', default=os.getenv('CONFIGURATION_AUTH_TIO_ACCESS_KEY',None), type=str, required=True, help='Tenable.io access key')
+        self.parser.add_argument('-tio-secret-key', dest='tioSecretKey', default=os.getenv('CONFIGURATION_AUTH_TIO_SECRET_KEY',None), type=str, required=True, help='Tenable.io secret key')
 
 
     def setup(self):
