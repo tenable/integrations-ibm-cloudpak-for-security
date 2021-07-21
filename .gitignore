@@ -1,5 +1,6 @@
 /examples_from_ibm
 __pycache__
+cache/
 .vscode
 *.pyc
 /ibm_api_keys.json

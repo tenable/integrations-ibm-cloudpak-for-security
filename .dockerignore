@@ -27,6 +27,7 @@ virtualenv/
 
 # mypy
 .mypy_cache/
+cache/
 
 *pytest_cache*
 *__pycache__*
