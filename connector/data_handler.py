@@ -141,7 +141,6 @@ class DataHandler(BaseDataHandler):
             'updated_at': _ts(plugin.get('modification_date', '')),
             'base_score': plugin.get('cvss_base_score',
                                      sevmap[vuln['severity_id']]),
-            'source': 'tenable.io',
 
             ### Extended Fields Specific to Tenable.io
 
