@@ -1,6 +1,5 @@
 import arrow
 from datetime import datetime
-import string
 
 from car_framework.context import context
 from car_framework.data_handler import BaseDataHandler
