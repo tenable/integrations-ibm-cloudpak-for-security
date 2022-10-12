@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "Tenable"
+            "displayName": "Tenable",
+            "group": "tenable"
         }
     },
     "configuration": {
