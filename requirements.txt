@@ -1,3 +1,4 @@
 pytenable==1.4.3
 arrow>=0.13.0
 car-connector-framework==3.0.2
+urllib3==1.26.15
