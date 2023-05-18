@@ -2,12 +2,12 @@
     "configuration": {
         "auth": {
             "tio_access_key": {
-                "label": "Access Key",
-                "description": "Access Key of Tenable with access to its API"
+                "label": "Access key",
+                "description": "Access key of Tenable with access to its API"
             },
             "tio_secret_key": {
-                "label": "Secret Key",
-                "description": "Secret Key of Tenable with access to its API"
+                "label": "Secret key",
+                "description": "Secret key of Tenable with access to its API"
             }
         },
         "parameter": {

@@ -19,3 +19,4 @@ setenv.sh
 venv/
 ENV/
 virtualenv/
+Dockerfile
