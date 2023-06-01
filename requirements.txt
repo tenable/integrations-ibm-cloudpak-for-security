@@ -1,5 +1,5 @@
 pytenable==1.4.3
 arrow>=0.13.0
 car-connector-framework==2.0.7
-cryptography==3.3.2
+cryptography==41.0.0
 pyopenssl==19.1.0
