@@ -1,3 +1,7 @@
+> NOTE: This repository has been archived and is slated to be removed in the second half of 2024.
+> IBM has taken over development of the integration and more recent code may be found at
+> https://github.com/omkar-g/integrations-ibm-cloudpak-for-security
+
 # Tenable.io -> IBM Cloud Pak for Security Transformer
 
 This tool is designed to consume Tenable.io asset and vulnerability data,
